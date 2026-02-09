@@ -216,35 +216,6 @@
             opacity: 1;
         }
         
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-            
-            h2 {
-                font-size: 26px;
-            }
-            
-            h3 {
-                font-size: 22px;
-            }
-            
-            body {
-                font-size: 16px;
-            }
-            
-            .container {
-                padding: 20px 15px;
-            }
-            
-            .nav-sidebar {
-                display: none !important;
-            }
-            
-            .nav-toggle {
-                display: block !important;
-            }
-        }
         
         /* Navigation Sidebar */
         .nav-sidebar {
@@ -340,7 +311,18 @@
             }
             
             .container {
-                padding: 20px 15px;
+                padding: 80px 15px 20px 15px;
+                margin-left: 0;
+            }
+            
+            .nav-sidebar {
+                display: none;
+                width: 100%;
+                padding: 80px 20px 20px 20px;
+            }
+            
+            .nav-toggle {
+                display: block;
             }
         }
     </style>
