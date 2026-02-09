@@ -236,10 +236,140 @@
             .container {
                 padding: 20px 15px;
             }
+            
+            .nav-sidebar {
+                display: none !important;
+            }
+            
+            .nav-toggle {
+                display: block !important;
+            }
+        }
+        
+        /* Navigation Sidebar */
+        .nav-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            border-right: 1px solid #e0e0e0;
+            padding: 30px 20px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+        
+        .nav-sidebar h3 {
+            font-size: 18px;
+            margin: 0 0 20px 0;
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        
+        .nav-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-sidebar li {
+            margin: 0;
+        }
+        
+        .nav-sidebar a {
+            display: block;
+            padding: 10px 15px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        
+        .nav-sidebar a:hover {
+            background: #f5f5f5;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .nav-sidebar a.active {
+            background: #000;
+            color: #fff;
+        }
+        
+        .container {
+            margin-left: 280px;
+        }
+        
+        /* Mobile navigation toggle */
+        .nav-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            h2 {
+                font-size: 26px;
+            }
+            
+            h3 {
+                font-size: 22px;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Mobile Navigation Toggle -->
+    <button class="nav-toggle" id="navToggle">☰ Меню</button>
+    
+    <!-- Navigation Sidebar -->
+    <nav class="nav-sidebar" id="navSidebar">
+        <h3>📑 Навигация</h3>
+        <ul>
+            <li><a href="#intro">🎯 Введение</a></li>
+            <li><a href="#features">⚙️ Возможности</a></li>
+            <li><a href="#safety">🔒 Безопасность</a></li>
+            <li><a href="#practice">💼 Практика</a></li>
+            <li><a href="#history">📖 История сделок</a></li>
+            <li><a href="#psychology">🧠 Психология</a></li>
+            <li><a href="#savings">💰 Экономия</a></li>
+            <li><a href="#stats">📊 Статистика</a></li>
+            <li><a href="#indicators">📚 Справочник</a></li>
+            <li><a href="#who">👥 Для кого?</a></li>
+            <li><a href="#start">🚀 Как начать</a></li>
+            <li><a href="#api">🔑 API ключи</a></li>
+            <li><a href="#conclusion">🎓 Выводы</a></li>
+            <li><a href="#future">🔮 Планы</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
         <h1>Sensei Trader by Sensis (@snsblll)</h1>
         <p class="subtitle">Ваш личный помощник в управлении рисками на Bybit</p>
@@ -253,7 +383,7 @@
 
         <hr>
 
-        <h2>🎯 Введение: почему дисциплина важнее стратегии</h2>
+        <h2 id="intro">🎯 Введение: почему дисциплина важнее стратегии</h2>
 
         <p>Фьючерсная торговля на криптовалютном рынке требует не только понимания графиков и индикаторов, но и железной дисциплины. Один импульсивный вход, передержанный убыток или неправильный размер позиции — и месячная прибыль испаряется за пару часов.</p>
 
@@ -261,7 +391,7 @@
 
         <hr>
 
-        <h2>⚙️ Что умеет Sensei Trader?</h2>
+        <h2 id="features">⚙️ Что умеет Sensei Trader?</h2>
 
         <p>Представьте утреннюю ситуацию: вы проснулись, открыли Telegram и сразу видите, что случилось с вашими позициями за ночь. Не нужно заходить в биржу, искать графики, вспоминать стопы и тейки.</p>
 
@@ -278,7 +408,7 @@
 
         <hr>
 
-        <h2>🔒 Почему это безопасно?</h2>
+        <h2 id="safety">🔒 Почему это безопасно?</h2>
 
         <p>Главный страх каждого трейдера: «А что если бот сольёт мой депозит?»</p>
 
@@ -295,7 +425,7 @@
 
         <hr>
 
-        <h2>💼 Как это работает на практике?</h2>
+        <h2 id="practice">💼 Как это работает на практике?</h2>
 
         <p>Давайте разберём типичные сценарии торгового дня.</p>
 
@@ -386,7 +516,7 @@ RR = 1 : 2.4
 
         <hr>
 
-        <h2>📖 Функция, которая меняет торговлю: История сделок</h2>
+        <h2 id="history">📖 Функция, которая меняет торговлю: История сделок</h2>
 
         <p>Самая недооценённая часть трейдинга — это <strong>разбор ошибок</strong>. Большинство трейдеров просто закрывают убыточную сделку и забывают. Потом повторяют ту же ошибку.</p>
 
@@ -417,7 +547,7 @@ PnL: -30 USDT
 
         <hr>
 
-        <h2>🧠 Психологические фишки: Алерты и дисциплина</h2>
+        <h2 id="psychology">🧠 Психологические фишки: Алерты и дисциплина</h2>
 
         <p>Одна из причин убытков — эмоциональная торговля. Увидели резкий памп на 10% — FOMO — вошли на хаях — получили откат.</p>
 
@@ -437,7 +567,7 @@ PnL: -30 USDT
 
         <hr>
 
-        <h2>💰 Экономия благодаря боту</h2>
+        <h2 id="savings">💰 Экономия благодаря боту</h2>
 
         <p>Одна из самых недооценённых функций Sensei Trader — <strong>подсчёт экономии</strong>. Бот отслеживает, сколько денег вы сохранили благодаря алертам и рекомендациям.</p>
 
@@ -466,7 +596,7 @@ PnL: -30 USDT
 
         <hr>
 
-        <h2>📊 Статистика, которая мотивирует</h2>
+        <h2 id="stats">📊 Статистика, которая мотивирует</h2>
 
         <p>Каждое воскресенье в 23:00 бот присылает недельный отчёт:</p>
 
@@ -494,7 +624,7 @@ PnL: +180 USDT
 
         <hr>
 
-        <h2>📚 Справочник: Индикаторы и RR</h2>
+        <h2 id="indicators">📚 Справочник: Индикаторы и RR</h2>
 
         <p>Sensei Trader использует несколько ключевых индикаторов для анализа рынка. Вот что означает каждый из них:</p>
 
@@ -639,7 +769,7 @@ RR = 1:3
 
         <hr>
 
-        <h2>👥 Кому подойдёт Sensei Trader?</h2>
+        <h2 id="who">👥 Кому подойдёт Sensei Trader?</h2>
 
         <h3>Идеально для:</h3>
 
@@ -660,7 +790,7 @@ RR = 1:3
 
         <hr>
 
-        <h2>🚀 Как начать?</h2>
+        <h2 id="start">🚀 Как начать?</h2>
 
         <p>Настройка занимает буквально <strong>2 минуты</strong>:</p>
 
@@ -691,7 +821,7 @@ RR = 1:3
 
         <hr>
 
-        <h2>🔑 Как получить API ключи на Bybit (read-only)</h2>
+        <h2 id="api">🔑 Как получить API ключи на Bybit (read-only)</h2>
 
         <h3>1. Войдите в аккаунт Bybit</h3>
 
@@ -771,7 +901,7 @@ RR = 1:3
 
         <hr>
 
-        <h2>🎓 Главное, что нужно понять</h2>
+        <h2 id="conclusion">🎓 Главное, что нужно понять</h2>
 
         <p>Sensei Trader — это не робот-трейдер. Это <strong>зеркало</strong>, в котором вы видите свои решения, ошибки и прогресс.</p>
 
@@ -791,7 +921,7 @@ RR = 1:3
 
         <hr>
 
-        <h2>🔮 Что дальше?</h2>
+        <h2 id="future">🔮 Что дальше?</h2>
 
         <p>В планах развития:</p>
 
@@ -844,6 +974,53 @@ RR = 1:3
         backToTop.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Navigation highlighting
+        const navLinks = document.querySelectorAll('.nav-sidebar a');
+        const sections = document.querySelectorAll('h2[id]');
+        
+        function highlightNav() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightNav);
+        highlightNav();
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navSidebar = document.getElementById('navSidebar');
+        
+        navToggle.addEventListener('click', () => {
+            if (navSidebar.style.display === 'block') {
+                navSidebar.style.display = 'none';
+            } else {
+                navSidebar.style.display = 'block';
+            }
+        });
+        
+        // Close mobile nav when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navSidebar.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
