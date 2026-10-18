@@ -1102,72 +1102,57 @@ RR = 1:3
         <h3>2. Откройте раздел API</h3>
 
         <ul>
-            <li>Наведите на иконку профиля (правый верхний угол)</li>
-            <li>Выберите <strong>API</strong> в выпадающем меню</li>
+            <li>Наведите на иконку профиля (правый верхний угол) → <strong>API</strong></li>
             <li>Или перейдите напрямую: <a href="https://www.bybit.com/app/user/api-management" target="_blank">API Management</a></li>
         </ul>
 
         <h3>3. Создайте новый ключ</h3>
 
         <ul>
-            <li>Нажмите <strong>Create New Key</strong></li>
-            <li>Выберите <strong>System-generated API Keys</strong> (рекомендуется)</li>
+            <li>Нажмите <strong>Create New Key</strong> → <strong>System-generated API Keys</strong></li>
+            <li>Название — любое, например <code>Sensei</code></li>
         </ul>
 
-        <h3>4. Настройте разрешения (КРИТИЧНО!)</h3>
+        <h3>4. Настройте разрешения</h3>
 
         <div class="warning">
-            <p><strong>⚠️ Важно для безопасности:</strong></p>
-            <p>Выберите <strong>ТОЛЬКО</strong> read-only разрешения:</p>
+            <p><strong>⚠️ Тип ключа — только Read-Only (только чтение).</strong></p>
+            <p>В этом режиме ключ не может торговать, переводить или выводить средства. Галочки ниже дают боту только <em>просмотр</em>.</p>
         </div>
 
         <p><strong>Отметьте:</strong></p>
         <ul>
-            <li>✅ <strong>Read-Only</strong> (отметьте галочку)</li>
-            <li>✅ Под ней разверните и отметьте:
-                <ul>
-                    <li>Wallet (чтение баланса)</li>
-                    <li>Position (чтение позиций)</li>
-                    <li>Trade (чтение истории сделок)</li>
-                </ul>
-            </li>
+            <li>✅ <strong>Contract</strong> → Orders и Positions — позиции и история сделок</li>
+            <li>✅ <strong>Unified Trading / Derivatives</strong> → Trade — позиции на едином торговом аккаунте</li>
+            <li>✅ <strong>SPOT</strong> → Trade — споты и баланс</li>
         </ul>
 
-        <p><strong>НЕ отмечайте:</strong></p>
-        <ul>
-            <li>❌ Contract Trade (торговля)</li>
-            <li>❌ Spot Trade (торговля спотом)</li>
-            <li>❌ Wallet Transfer (переводы)</li>
-            <li>❌ Withdrawal (вывод средств)</li>
-        </ul>
+        <p><strong>IP-ограничение:</strong> выберите <strong>No IP restriction</strong>. Такой ключ Bybit отключает через 90 дней. Тогда создайте новый и снова отправьте <strong>/setkeys</strong>.</p>
 
         <h3>5. Сохраните ключи</h3>
 
         <ul>
-            <li>Нажмите <strong>Submit</strong></li>
-            <li>Скопируйте <strong>API Key</strong> (длинная строка из букв и цифр)</li>
-            <li>Скопируйте <strong>API Secret</strong> (ещё одна длинная строка)</li>
-            <li><strong>⚠️ Важно:</strong> Secret показывается только один раз! Сохраните его сразу.</li>
+            <li>Нажмите <strong>Submit</strong> и подтвердите кодом 2FA</li>
+            <li><strong>API Key</strong> — короткий, 18 символов</li>
+            <li><strong>API Secret</strong> — длинный, 36 символов. Показывается только один раз, скопируйте сразу</li>
         </ul>
 
         <h3>6. Вставьте ключи в бота</h3>
 
         <ul>
-            <li>Вернитесь в Telegram к Sensei Trader</li>
-            <li>Команда <strong>/setkeys</strong></li>
-            <li>Вставьте API Key</li>
-            <li>Вставьте API Secret</li>
-            <li>Готово! ✅</li>
+            <li>В Sensei Trader отправьте <strong>/setkeys</strong></li>
+            <li>Сначала вставьте <strong>API Key</strong> (короткий)</li>
+            <li>Бот ответит «Теперь введи BYBIT_API_SECRET» — вставьте <strong>API Secret</strong> (длинный)</li>
+            <li>Придёт «✅ Ключи сохранены». Сообщения с ключами бот удалит сам</li>
         </ul>
 
         <div class="success">
             <h3>Проверка:</h3>
 
-            <p>После настройки ключей проверьте, что всё работает:</p>
+            <p>Нажмите <strong>💰 Баланс</strong>. Если видите сумму — всё настроено.</p>
             <ul>
-                <li>Нажмите кнопку <strong>💰 Баланс</strong></li>
-                <li>Если видите баланс — ключи настроены правильно!</li>
-                <li>Если ошибка — проверьте, что выбрали Read-Only разрешения</li>
+                <li><strong>«Не нашёл USDT/USDC в кошельке»</strong> — деньги лежат на счёте Funding. Бот видит только Unified Trading Account: переведите USDT туда (Активы → Перевод).</li>
+                <li><strong>«API‑ключи неверные»</strong> — перепутаны Key и Secret или ключ истёк (90 дней). Создайте новый и отправьте /setkeys.</li>
             </ul>
         </div>
 

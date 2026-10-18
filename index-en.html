@@ -1090,79 +1090,64 @@ Total: +$60 profit at 40% winrate!</pre>
 
         <h2 id="api">🔑 How to Get Bybit API Keys (read-only)</h2>
 
-        <h3>1. Log into Bybit Account</h3>
+        <h3>1. Log in to Bybit</h3>
 
-        <p>Go to <a href="https://www.bybit.com" target="_blank">bybit.com</a> and log into your account.</p>
+        <p>Go to <a href="https://www.bybit.com" target="_blank">bybit.com</a> and log in.</p>
 
-        <h3>2. Open API Section</h3>
+        <h3>2. Open API settings</h3>
 
         <ul>
-            <li>Hover over profile icon (top right)</li>
-            <li>Select <strong>API</strong> from dropdown</li>
+            <li>Hover over the profile icon (top right) → <strong>API</strong></li>
             <li>Or go directly: <a href="https://www.bybit.com/app/user/api-management" target="_blank">API Management</a></li>
         </ul>
 
-        <h3>3. Create New Key</h3>
+        <h3>3. Create a new key</h3>
 
         <ul>
-            <li>Click <strong>Create New Key</strong></li>
-            <li>Select <strong>System-generated API Keys</strong> (recommended)</li>
+            <li>Click <strong>Create New Key</strong> → <strong>System-generated API Keys</strong></li>
+            <li>Any name, e.g. <code>Sensei</code></li>
         </ul>
 
-        <h3>4. Configure Permissions (CRITICAL!)</h3>
+        <h3>4. Set permissions</h3>
 
         <div class="warning">
-            <p><strong>⚠️ Important for security:</strong></p>
-            <p>Select <strong>ONLY</strong> read-only permissions:</p>
+            <p><strong>⚠️ Key type: Read-Only only.</strong></p>
+            <p>A read-only key cannot trade, transfer or withdraw. The boxes below only let the bot <em>view</em> data.</p>
         </div>
 
         <p><strong>Check:</strong></p>
         <ul>
-            <li>✅ <strong>Read-Only</strong> (check the box)</li>
-            <li>✅ Under it expand and check:
-                <ul>
-                    <li>Wallet (balance reading)</li>
-                    <li>Position (position reading)</li>
-                    <li>Trade (trade history reading)</li>
-                </ul>
-            </li>
+            <li>✅ <strong>Contract</strong> → Orders and Positions — positions and trade history</li>
+            <li>✅ <strong>Unified Trading / Derivatives</strong> → Trade — positions on the Unified Trading Account</li>
+            <li>✅ <strong>SPOT</strong> → Trade — spot and balance</li>
         </ul>
 
-        <p><strong>DO NOT check:</strong></p>
+        <p><strong>IP restriction:</strong> choose <strong>No IP restriction</strong>. Bybit disables such keys after 90 days — then create a new one and send <strong>/setkeys</strong> again.</p>
+
+        <h3>5. Save the keys</h3>
+
         <ul>
-            <li>❌ Contract Trade (trading)</li>
-            <li>❌ Spot Trade (spot trading)</li>
-            <li>❌ Wallet Transfer (transfers)</li>
-            <li>❌ Withdrawal (fund withdrawal)</li>
+            <li>Click <strong>Submit</strong> and confirm with 2FA</li>
+            <li><strong>API Key</strong> — short, 18 characters</li>
+            <li><strong>API Secret</strong> — long, 36 characters. Shown only once, copy it right away</li>
         </ul>
 
-        <h3>5. Save Keys</h3>
+        <h3>6. Paste the keys into the bot</h3>
 
         <ul>
-            <li>Click <strong>Submit</strong></li>
-            <li>Copy <strong>API Key</strong> (long string of letters and numbers)</li>
-            <li>Copy <strong>API Secret</strong> (another long string)</li>
-            <li><strong>⚠️ Important:</strong> Secret shown only once! Save it immediately.</li>
-        </ul>
-
-        <h3>6. Paste Keys into Bot</h3>
-
-        <ul>
-            <li>Return to Telegram to Sensei Trader</li>
-            <li>Command <strong>/setkeys</strong></li>
-            <li>Paste API Key</li>
-            <li>Paste API Secret</li>
-            <li>Done! ✅</li>
+            <li>Send <strong>/setkeys</strong> to Sensei Trader</li>
+            <li>Paste the <strong>API Key</strong> first (the short one)</li>
+            <li>When the bot asks for BYBIT_API_SECRET, paste the <strong>API Secret</strong> (the long one)</li>
+            <li>You'll get "✅ Keys saved". The bot deletes the messages with your keys</li>
         </ul>
 
         <div class="success">
-            <h3>Verification:</h3>
+            <h3>Check:</h3>
 
-            <p>After setting up keys, check everything works:</p>
+            <p>Tap <strong>💰 Balance</strong>. If you see an amount, you're set.</p>
             <ul>
-                <li>Press button <strong>💰 Balance</strong></li>
-                <li>If you see balance — keys configured correctly!</li>
-                <li>If error — check that you selected Read-Only permissions</li>
+                <li><strong>"No USDT/USDC found in wallet"</strong> — funds are on the Funding account. The bot only reads the Unified Trading Account: transfer USDT there (Assets → Transfer).</li>
+                <li><strong>"API keys are invalid"</strong> — Key and Secret are swapped, or the key expired (90 days). Create a new one and send /setkeys.</li>
             </ul>
         </div>
 
